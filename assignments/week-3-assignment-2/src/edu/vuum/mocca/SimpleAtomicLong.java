@@ -1,3 +1,5 @@
+package edu.vuum.mocca;
+
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.Lock;
 
@@ -26,7 +28,9 @@ class SimpleAtomicLong {
      */
     public SimpleAtomicLong(long initialValue) {
         // TODO -- you fill in here
+
         mValue = initialValue;
+
     }
 
     /**
@@ -38,9 +42,11 @@ class SimpleAtomicLong {
 
         // TODO -- you fill in here
         mRWLock.readLock().lock();
-        value = this.mValue;
-        mRWLock.readLock().unlock();
-
+        try {
+            value = this.mValue;
+        } finally {
+            mRWLock.readLock().unlock();
+        }
         return value;
     }
 
@@ -53,8 +59,11 @@ class SimpleAtomicLong {
 
         // TODO -- you fill in here
         mRWLock.writeLock().lock();
-        value = --this.mValue;
-        mRWLock.writeLock().unlock();
+        try {
+            value = --this.mValue;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
 
         return value;
     }
@@ -68,8 +77,11 @@ class SimpleAtomicLong {
 
         // TODO -- you fill in here
         mRWLock.writeLock().lock();
-        value = this.mValue++;
-        mRWLock.writeLock().unlock();
+        try {
+            value = this.mValue++;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
         return value;
     }
 
@@ -82,9 +94,11 @@ class SimpleAtomicLong {
 
         // TODO -- you fill in here
         mRWLock.writeLock().lock();
-        value = this.mValue--;
-        mRWLock.writeLock().unlock();
-
+        try {
+            value = this.mValue--;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
         return value;
     }
 
@@ -97,9 +111,11 @@ class SimpleAtomicLong {
 
         // TODO -- you fill in here
         mRWLock.writeLock().lock();
-        value = ++this.mValue;
-        mRWLock.writeLock().unlock();
-
+        try {
+            value = ++this.mValue;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
         return value;
     }
 }
