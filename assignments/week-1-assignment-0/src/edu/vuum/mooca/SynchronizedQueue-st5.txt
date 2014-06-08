@@ -222,6 +222,7 @@ public class SynchronizedQueue {
             // passed the consumerRunnable.
             Thread consumer = new Thread(consumerRunnable);
             Thread producer = new Thread(producerRunnable);
+            
 
             // TODO - you fill in here to start the threads. More
             // interesting results will occur if you start the
@@ -236,7 +237,7 @@ public class SynchronizedQueue {
             // TODO - you fill in here to interrupt the threads.
             consumer.interrupt();
             producer.interrupt();
-
+            
             // TODO - you fill in here to wait for the threads to
             // exit.
             consumer.join();
@@ -269,3 +270,4 @@ public class SynchronizedQueue {
         }
     }
 }
+

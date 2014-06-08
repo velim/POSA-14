@@ -12,7 +12,7 @@ import edu.vuum.mooca.SynchronizedQueue.*;
  * @class SynchronizedQueueTest
  *
  * @brief This class tests queues for proper functionality by 
- * 	  using the testQueue method defined in SynchronizedQueue.java
+ * 	  using the testQueue method defined in SynchronizedQueueMy.txt
  */
 public class SynchronizedQueueTest {
     /**
